@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>悦颜增长 AI | 医美 AI 测脸获客助手</title>
+    <meta
+      name="description"
+      content="悦颜增长 AI 是面向医美机构的合规获客页面，用 AI 测脸钩子承接咨询线索、生成面诊沟通清单和客户分层。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="notice-bar">
+      <span>AI 测脸获客钩子：用户上传自拍，领取专属面诊沟通清单</span>
+      <a href="#face-test">配置钩子</a>
+    </div>
+
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="./" aria-label="悦颜增长 AI 首页">
+        <span class="brand-mark">Y</span>
+        <span>悦颜增长 AI</span>
+      </a>
+      <nav>
+        <p>增长工作台</p>
+        <a class="active" href="#face-test">AI 测脸钩子</a>
+        <a href="#lead-flow">线索转化</a>
+        <a href="#scripts">咨询话术</a>
+        <a href="#compliance">合规边界</a>
+        <p>适用项目</p>
+        <a href="#scenes">皮肤管理</a>
+        <a href="#scenes">轮廓咨询</a>
+        <a href="#scenes">抗衰管理</a>
+        <a href="#scenes">术后随访</a>
+      </nav>
+    </aside>
+
+    <header class="topbar">
+      <button class="icon-button menu-button" type="button" aria-label="展开导航">☰</button>
+      <div class="topbar-actions">
+        <a href="#lead-form">领取方案</a>
+        <button class="login-button" type="button">机构登录</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="face-test">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Medical Aesthetic Lead Magnet</p>
+          <h1>把获客钩子做成 AI 测脸，先给用户一个想点开的理由</h1>
+          <p>
+            用户上传自拍后，页面生成一份“面部美学沟通清单”演示报告，再引导留下联系方式。
+            适合医美机构做私域引流、面诊预约和咨询师跟进。
+          </p>
+        </div>
+
+        <section class="face-card" aria-label="AI 测脸演示">
+          <div class="upload-panel">
+            <label class="upload-box" for="faceUpload">
+              <input id="faceUpload" type="file" accept="image/*" />
+              <span>＋</span>
+              <strong>上传正面自拍</strong>
+              <small>仅用于本页演示，不会上传到服务器</small>
+            </label>
+            <div class="preview" id="preview">
+              <span>自拍预览</span>
+            </div>
+          </div>
+
+          <div class="analysis-panel">
+            <div class="panel-heading">
+              <p class="eyebrow">AI Face Check</p>
+              <h2>生成专属变美沟通清单</h2>
+            </div>
+            <div class="score-grid">
+              <article>
+                <span id="scoreContour">--</span>
+                <p>轮廓协调</p>
+              </article>
+              <article>
+                <span id="scoreSkin">--</span>
+                <p>肤质关注</p>
+              </article>
+              <article>
+                <span id="scoreStyle">--</span>
+                <p>风格匹配</p>
+              </article>
+            </div>
+            <ul class="result-list" id="resultList">
+              <li>上传自拍后生成 3 条沟通建议。</li>
+              <li>报告只做咨询前参考，不替代医生面诊。</li>
+              <li>不展示“缺陷打分”，避免制造容貌焦虑。</li>
+            </ul>
+            <button class="primary-button" id="analyzeButton" type="button">开始 AI 测脸</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="section hook-section" id="lead-form">
+        <div>
+          <p class="eyebrow">Conversion Hook</p>
+          <h2>钩子落地：测完脸，领取面诊清单</h2>
+          <p>
+            不用直接推项目，先给用户一份低压力、有价值的资料。咨询师拿到线索后，再根据用户关注点做人工沟通。
+          </p>
+        </div>
+        <form class="lead-form">
+          <label>
+            <span>你的称呼</span>
+            <input type="text" placeholder="例如：李女士" />
+          </label>
+          <label>
+            <span>联系方式</span>
+            <input type="tel" placeholder="手机号 / 微信号" />
+          </label>
+          <label>
+            <span>当前最想改善</span>
+            <select>
+              <option>皮肤状态与毛孔</option>
+              <option>面部轮廓与下颌线</option>
+              <option>抗衰紧致与细纹</option>
+              <option>鼻眼唇风格咨询</option>
+            </select>
+          </label>
+          <button class="primary-button" type="button">领取 7 天咨询转化脚本</button>
+          <small>提交即表示同意由人工顾问联系。页面不收集医疗诊断信息。</small>
+        </form>
+      </section>
+
+      <section class="section flow-section" id="lead-flow">
+        <div class="section-heading">
+          <p class="eyebrow">Lead Flow</p>
+          <h2>从测脸到预约的 4 步</h2>
+        </div>
+        <div class="flow-grid">
+          <article>
+            <span>01</span>
+            <h3>短视频/朋友圈投放</h3>
+            <p>用“AI 测脸领面诊清单”作为入口，降低第一次咨询门槛。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>生成美学关注点</h3>
+            <p>输出轮廓、肤质、风格三类沟通建议，避免夸张承诺。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>AI 生成跟进话术</h3>
+            <p>按用户关注点生成私域开场白、邀约面诊和复访提醒。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>人工顾问承接</h3>
+            <p>所有项目建议由专业人员线下确认，页面只负责获客和分层。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section script-section" id="scripts">
+        <div>
+          <p class="eyebrow">AI Script</p>
+          <h2>咨询话术示例</h2>
+          <p>根据测脸结果生成温和、克制、可人工确认的沟通脚本。</p>
+        </div>
+        <div class="script-card">
+          <p class="tag">首聊开场</p>
+          <p>
+            “我看你比较关注面部整体协调和皮肤通透感。我们可以先做一次基础面诊评估，
+            主要帮你确认适合的改善方向，不会直接推荐具体项目。”
+          </p>
+          <p class="tag">预约引导</p>
+          <p>
+            “如果你方便，可以预约 20 分钟到院沟通。顾问会先了解预算、恢复期和风格偏好，
+            再由专业人员给出更稳妥的建议。”
+          </p>
+        </div>
+      </section>
+
+      <section class="section scenes-section" id="scenes">
+        <div class="section-heading">
+          <p class="eyebrow">Scenes</p>
+          <h2>适合的获客场景</h2>
+        </div>
+        <div class="scene-grid">
+          <article>皮肤管理新客留资</article>
+          <article>轻医美项目咨询</article>
+          <article>抗衰老会员转化</article>
+          <article>节日活动预约</article>
+          <article>老客复购提醒</article>
+          <article>咨询师私域运营</article>
+        </div>
+      </section>
+
+      <section class="section compliance-section" id="compliance">
+        <div class="preview-panel">
+          <img src="./assets/med-aesthetic-hero.png" alt="医美 AI 增长工作台视觉图" />
+        </div>
+        <div>
+          <p class="eyebrow">Compliance First</p>
+          <h2>钩子要强，但不能吓唬用户</h2>
+          <ul>
+            <li>不做“缺陷诊断”，只做美学沟通参考。</li>
+            <li>不承诺效果，不出现“必变美”“永久改善”等表达。</li>
+            <li>不展示夸张术前术后对比，不制造容貌焦虑。</li>
+            <li>真实项目建议必须由专业人员面诊后确认。</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
