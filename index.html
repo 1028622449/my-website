@@ -93,6 +93,13 @@
               <li>不展示“缺陷打分”，避免制造容貌焦虑。</li>
             </ul>
             <button class="primary-button" id="analyzeButton" type="button">开始 AI 测脸</button>
+            <div class="wechat-cta" id="wechatCta" hidden>
+              <div>
+                <strong>领取完整面诊分析清单</strong>
+                <p>添加美学顾问微信，发送暗号“测脸”，人工顾问帮你整理适合面诊沟通的问题。</p>
+              </div>
+              <button class="wechat-button" id="openWechat" type="button">一键添加顾问微信</button>
+            </div>
           </div>
         </section>
       </section>
@@ -208,6 +215,26 @@
         </div>
       </section>
     </main>
+
+    <div class="wechat-modal" id="wechatModal" aria-hidden="true">
+      <div class="wechat-dialog" role="dialog" aria-modal="true" aria-labelledby="wechatTitle">
+        <button class="modal-close" id="closeWechat" type="button" aria-label="关闭">×</button>
+        <p class="eyebrow">Add WeChat</p>
+        <h2 id="wechatTitle">加微信领取完整测脸报告</h2>
+        <div class="qr-card">
+          <div class="qr-placeholder" aria-label="微信二维码占位">
+            <span>微信二维码</span>
+            <small>把你的二维码图片发给我后，我会替换到这里</small>
+          </div>
+          <div>
+            <strong>添加方式</strong>
+            <p>长按或扫码添加顾问微信，发送暗号：测脸。</p>
+            <p>顾问会根据你的关注点，发送完整面诊沟通清单并邀约到店沟通。</p>
+          </div>
+        </div>
+        <a class="wechat-copy" href="#lead-form">也可以先留下联系方式</a>
+      </div>
+    </div>
 
     <script src="./app.js" type="module"></script>
   </body>
