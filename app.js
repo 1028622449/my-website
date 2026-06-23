@@ -13,11 +13,11 @@ const copyWechat = document.querySelector("#copyWechat");
 const wechatId = "xuzhou168qe";
 
 const suggestions = [
-  "建议先从你最关注的部位聊起，用“想要自然改善，还是更精致一点”确认审美方向。",
-  "可以准备素颜正面照、侧面照和近期护肤记录，方便顾问帮你整理面诊沟通重点。",
-  "跟进时优先确认预算、恢复期和接受程度，再由专业人员做线下面诊评估。",
-  "不直接给项目结论，用“到店面诊后确认是否适合”替代确定性承诺。",
-  "适合作为皮肤管理、轮廓协调、抗衰紧致的私域首聊入口。"
+  "可以先描述自己最关注的部位，再说明希望偏自然还是偏精致。",
+  "面诊前可准备一张正面照、一张侧面照，以及近期护肤或项目记录。",
+  "沟通时建议提前想好预算范围、可接受恢复期和风格偏好。",
+  "不要仅凭线上结果决定项目，具体是否适合需要专业人员面诊确认。",
+  "如果你更关注皮肤状态，可以重点询问毛孔、肤色、屏障和日常护理建议。"
 ];
 
 uploadInput.addEventListener("change", () => {
@@ -27,8 +27,8 @@ uploadInput.addEventListener("change", () => {
   const imageUrl = URL.createObjectURL(file);
   preview.innerHTML = `<img src="${imageUrl}" alt="上传的自拍预览" />`;
   resultList.innerHTML = `
-    <li>自拍已载入，可点击“开始 AI 测脸”生成演示报告。</li>
-    <li>本页面只在浏览器本地预览图片，不会上传或保存。</li>
+    <li>自拍已载入，可点击“开始 AI 测脸”生成参考清单。</li>
+    <li>图片只在当前浏览器本地预览，不会自动上传或保存。</li>
   `;
   hideWechatCta();
 });
@@ -48,7 +48,7 @@ analyzeButton.addEventListener("click", () => {
     resultList.innerHTML = picked.map((item) => `<li>${item}</li>`).join("");
 
     analyzeButton.disabled = false;
-    analyzeButton.textContent = "重新生成报告";
+    analyzeButton.textContent = "重新生成清单";
     showWechatCta();
   }, 900);
 });
