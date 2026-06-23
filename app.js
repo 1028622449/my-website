@@ -9,6 +9,8 @@ const wechatCta = document.querySelector("#wechatCta");
 const openWechat = document.querySelector("#openWechat");
 const closeWechat = document.querySelector("#closeWechat");
 const wechatModal = document.querySelector("#wechatModal");
+const copyWechat = document.querySelector("#copyWechat");
+const wechatId = "xuzhou168qe";
 
 const suggestions = [
   "建议先从你最关注的部位聊起，用“想要自然改善，还是更精致一点”确认审美方向。",
@@ -57,6 +59,18 @@ openWechat?.addEventListener("click", () => {
 });
 
 closeWechat?.addEventListener("click", closeWechatModal);
+
+copyWechat?.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(wechatId);
+    copyWechat.textContent = "已复制微信号";
+    window.setTimeout(() => {
+      copyWechat.textContent = "复制微信号";
+    }, 1600);
+  } catch {
+    copyWechat.textContent = wechatId;
+  }
+});
 
 wechatModal?.addEventListener("click", (event) => {
   if (event.target === wechatModal) {

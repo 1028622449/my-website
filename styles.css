@@ -481,6 +481,27 @@ h3 {
   line-height: 1.7;
 }
 
+.wechat-id {
+  color: var(--graphite);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.copy-button {
+  min-height: 38px;
+  margin: 4px 0 10px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--graphite);
+  color: #fff;
+  font-weight: 900;
+}
+
+.qr-note {
+  font-size: 13px;
+}
+
 .qr-placeholder {
   display: grid;
   place-items: center;
