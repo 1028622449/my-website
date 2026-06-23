@@ -545,6 +545,40 @@ h3 {
   font-weight: 900;
 }
 
+.entry-qr-card {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid rgba(43, 155, 149, 0.2);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.entry-qr-card img {
+  display: block;
+  width: 128px;
+  height: 128px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.entry-qr-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--graphite);
+  font-weight: 900;
+}
+
+.entry-qr-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
 .section {
   padding: 78px 32px;
   border-top: 1px solid var(--line);
@@ -728,6 +762,15 @@ h3 {
 
   .wechat-button {
     width: 100%;
+  }
+
+  .entry-qr-card {
+    grid-template-columns: 104px 1fr;
+  }
+
+  .entry-qr-card img {
+    width: 104px;
+    height: 104px;
   }
 
   .wechat-dialog {
