@@ -506,6 +506,17 @@ h3 {
   line-height: 1.5;
 }
 
+.qr-image {
+  display: block;
+  width: 190px;
+  height: 190px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  object-fit: contain;
+}
+
 .wechat-copy {
   display: inline-flex;
   margin-top: 14px;
