@@ -11,6 +11,7 @@
   --cyan-soft: rgba(57, 255, 213, 0.16);
   --cyan-line: rgba(57, 255, 213, 0.42);
   --blue: #5ab8ff;
+  --violet: #8c7cff;
   --rose: #ff5d93;
   --gold: #d5ff7a;
   --radius: 8px;
@@ -240,6 +241,43 @@ main {
   overflow: hidden;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: min(78vw, 920px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(57, 255, 213, 0.16);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, transparent 0 42%, rgba(57, 255, 213, 0.08) 43%, transparent 44% 58%, rgba(90, 184, 255, 0.06) 59%, transparent 60%),
+    conic-gradient(from 0deg, transparent 0 8%, rgba(57, 255, 213, 0.2) 10%, transparent 14% 34%, rgba(140, 124, 255, 0.16) 38%, transparent 42% 68%, rgba(57, 255, 213, 0.16) 72%, transparent 76%);
+  filter: blur(0.2px);
+  opacity: 0.72;
+  animation: orbitalHud 16s linear infinite;
+}
+
+.hero::after {
+  content: "FACIAL LANDMARKS  /  SKIN TEXTURE  /  STYLE VECTOR  /  DEPTH ROUTE";
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  width: min(920px, calc(100% - 64px));
+  padding: 8px 12px;
+  border: 1px solid rgba(57, 255, 213, 0.18);
+  border-radius: var(--radius);
+  background: rgba(3, 12, 14, 0.58);
+  color: rgba(183, 255, 240, 0.58);
+  font-size: 11px;
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -284,6 +322,10 @@ h1 {
   line-height: 1.05;
   letter-spacing: 0;
   text-shadow: 0 0 30px rgba(57, 255, 213, 0.24);
+  background: linear-gradient(180deg, #ffffff 0%, #dffff8 46%, #67ffe0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 h2 {
@@ -316,8 +358,13 @@ h3 {
   padding: 18px;
   border: 1px solid var(--cyan-line);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(10, 26, 30, 0.88), rgba(3, 12, 14, 0.9));
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.42), 0 0 50px rgba(57, 255, 213, 0.14);
+  background:
+    linear-gradient(135deg, rgba(57, 255, 213, 0.08), transparent 24% 76%, rgba(140, 124, 255, 0.07)),
+    linear-gradient(180deg, rgba(10, 26, 30, 0.9), rgba(3, 12, 14, 0.94));
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.48),
+    0 0 52px rgba(57, 255, 213, 0.18),
+    inset 0 0 40px rgba(57, 255, 213, 0.04);
   backdrop-filter: blur(18px);
   overflow: hidden;
   isolation: isolate;
@@ -346,6 +393,13 @@ h3 {
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0;
+}
+
+.face-card.is-processing {
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.52),
+    0 0 76px rgba(57, 255, 213, 0.3),
+    inset 0 0 56px rgba(57, 255, 213, 0.08);
 }
 
 .upload-panel {
@@ -402,10 +456,21 @@ h3 {
   text-align: center;
   color: var(--muted);
   background:
+    radial-gradient(circle at 50% 42%, rgba(57, 255, 213, 0.08), transparent 34%),
     linear-gradient(rgba(57, 255, 213, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(57, 255, 213, 0.045) 1px, transparent 1px),
     rgba(9, 24, 27, 0.84);
   background-size: 18px 18px;
+}
+
+.upload-box::after {
+  content: "LOCAL IMAGE BUFFER";
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  color: rgba(183, 255, 240, 0.42);
+  font-size: 10px;
+  font-weight: 900;
 }
 
 .upload-box input {
@@ -479,6 +544,19 @@ h3 {
   animation: scanLine 3.2s ease-in-out infinite;
 }
 
+.preview span {
+  position: relative;
+  z-index: 1;
+}
+
+.face-card.is-processing .preview::after {
+  animation-duration: 1.05s;
+}
+
+.face-card.has-result .preview::before {
+  content: "AI FACE MAP 99.1%  /  RESULT READY";
+}
+
 .preview img {
   width: 100%;
   height: 100%;
@@ -504,6 +582,15 @@ h3 {
   letter-spacing: 0;
 }
 
+.face-card.is-processing .analysis-panel::after {
+  content: "NEURAL ANALYSIS RUNNING / STREAM ACTIVE";
+  color: rgba(57, 255, 213, 0.72);
+}
+
+.face-card.has-result .analysis-panel::after {
+  content: "REPORT VECTOR READY";
+}
+
 .score-grid {
   gap: 12px;
   margin: 18px 0;
@@ -517,6 +604,13 @@ h3 {
   background: rgba(57, 255, 213, 0.08);
   text-align: center;
   box-shadow: inset 0 0 24px rgba(57, 255, 213, 0.05);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.score-grid article:hover {
+  transform: translateY(-2px);
+  border-color: rgba(57, 255, 213, 0.58);
+  box-shadow: inset 0 0 28px rgba(57, 255, 213, 0.1), 0 0 24px rgba(57, 255, 213, 0.12);
 }
 
 .score-grid span {
@@ -543,6 +637,11 @@ h3 {
 .result-list {
   min-height: 112px;
   padding-left: 20px;
+}
+
+.result-list li {
+  margin-bottom: 6px;
+  padding-left: 4px;
 }
 
 .result-list li::marker {
@@ -575,6 +674,7 @@ h3 {
   border: 1px solid var(--cyan-line);
   border-radius: var(--radius);
   background: rgba(57, 255, 213, 0.08);
+  animation: ctaReveal 360ms ease both;
 }
 
 .wechat-cta[hidden] {
@@ -634,6 +734,7 @@ h3 {
   align-items: center;
   margin-top: 22px;
   padding: 16px;
+  box-shadow: 0 0 24px rgba(57, 255, 213, 0.08);
 }
 
 .entry-qr-card img {
@@ -697,6 +798,9 @@ h3 {
   padding: 22px;
   position: relative;
   overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(57, 255, 213, 0.08), rgba(90, 184, 255, 0.03)),
+    var(--panel);
 }
 
 .flow-grid article::after,
@@ -748,6 +852,20 @@ h3 {
 .preview-panel {
   overflow: hidden;
   background: var(--panel-strong);
+}
+
+.preview-panel::after {
+  content: "AESTHETIC DATA LAB";
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  padding: 6px 9px;
+  border: 1px solid var(--cyan-line);
+  border-radius: var(--radius);
+  background: rgba(2, 8, 10, 0.68);
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 900;
 }
 
 .preview-panel img {
@@ -924,6 +1042,28 @@ h3 {
   }
 }
 
+@keyframes orbitalHud {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ctaReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1040px) {
   .sidebar {
     display: none;
@@ -982,6 +1122,11 @@ h3 {
 
   .hero {
     padding-top: 40px;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none;
   }
 
   h1 {

@@ -10,6 +10,7 @@ const openWechat = document.querySelector("#openWechat");
 const closeWechat = document.querySelector("#closeWechat");
 const wechatModal = document.querySelector("#wechatModal");
 const copyWechat = document.querySelector("#copyWechat");
+const faceCard = document.querySelector(".face-card");
 const wechatId = "xuzhou168qe";
 
 const suggestions = [
@@ -36,6 +37,7 @@ uploadInput.addEventListener("change", () => {
 analyzeButton.addEventListener("click", () => {
   analyzeButton.disabled = true;
   analyzeButton.textContent = "分析中...";
+  faceCard?.classList.add("is-processing");
   hideWechatCta();
 
   window.setTimeout(() => {
@@ -49,8 +51,10 @@ analyzeButton.addEventListener("click", () => {
 
     analyzeButton.disabled = false;
     analyzeButton.textContent = "重新生成清单";
+    faceCard?.classList.remove("is-processing");
+    faceCard?.classList.add("has-result");
     showWechatCta();
-  }, 900);
+  }, 1100);
 });
 
 openWechat?.addEventListener("click", () => {
